@@ -1,0 +1,25 @@
+<% content_for(:navbar) do %>
+  <%= link_to root_path, class: 'navbar-brand' do %>
+    <i class="material-icons mr-3">arrow_back</i>
+    <%= @note.display_title %>
+  <% end %>
+
+  <ul class="navbar-nav ml-auto flex-row">
+    <li class="nav-item">
+      <%= link_to edit_note_path(@note), class: 'nav-link ml-3' do %>
+        <i class="material-icons">edit</i>
+      <% end %>
+    </li>
+    <li class="nav-item">
+      <%= link_to @note, method: :delete, data: { confirm: 'Are you sure?' }, class: 'nav-link ml-3 text-muted' do %>
+        <i class="material-icons">delete</i>
+      <% end %>
+    </li>
+  </ul>
+<% end %>
+
+<h6 class="mt-2 text-muted"><%= local_time_ago @note.created_at %></h6>
+
+<div id="noteMarkdown">
+  <%= render_markdown @note.body %>
+</div>

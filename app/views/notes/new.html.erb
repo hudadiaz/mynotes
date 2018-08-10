@@ -1,0 +1,8 @@
+<% content_for(:navbar) do %>
+  <%= link_to root_path, class: 'navbar-brand' do %>
+    <i class="material-icons mr-3">arrow_back</i>
+    New Note
+  <% end %>
+<% end %>
+
+<%= render 'form', note: @note %>

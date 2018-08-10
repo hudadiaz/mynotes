@@ -1,0 +1,23 @@
+.navbar-brand {
+  max-width: 70%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.form-group.text-area {
+  position: absolute;
+  left: 1rem;
+  right: 1rem;
+  bottom: 0;
+  top: 120px;
+
+  textarea {
+    resize: none;
+  }
+}
+
+.no-border {
+  border: 0 !important;
+  box-shadow: none !important;
+}

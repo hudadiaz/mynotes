@@ -1,0 +1,5 @@
+<% if content_for?(:navbar) %>
+  <nav class="navbar sticky-top navbar-dark bg-dark">
+    <%= yield(:navbar) %>
+  </nav>
+<% end %>

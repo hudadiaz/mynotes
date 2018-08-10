@@ -1,0 +1,11 @@
+{
+  "name": "mynotes",
+  "private": true,
+  "dependencies": {
+    "@rails/webpacker": "3.5",
+    "markdown-it": "^8.4.2"
+  },
+  "devDependencies": {
+    "webpack-dev-server": "2.11.2"
+  }
+}

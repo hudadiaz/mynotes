@@ -1,0 +1,40 @@
+<% content_for(:navbar) do %>
+  <%= link_to root_path, class: 'navbar-brand' do %>
+    Notes
+  <% end %>
+
+  <ul class="navbar-nav ml-auto flex-row">
+    <li class="nav-item">
+      <%= link_to new_note_path, class: 'nav-link ml-3' do %>
+        <i class="material-icons">add</i>
+      <% end %>
+    </li>
+    <li class="nav-item">
+      <%= link_to auth_path, method: :delete, class: 'nav-link ml-3 text-muted' do %>
+        <i class="material-icons">exit_to_app</i>
+      <% end %>
+    </li>
+  </ul>
+<% end %>
+
+<% @notes.each do |note| %>
+  <div class="card my-2">
+    <div class="card-body">
+      <h5 class="card-title text-truncate">
+        <%= link_to note.display_title, note, class: 'card-link text-dark' %>
+        <div class="float-right">
+          <%= link_to edit_note_path(note), class: 'card-link text-secondary' do %>
+            <i class="material-icons">edit</i>
+          <% end %>
+          <%= link_to note, method: :delete, data: { confirm: 'Are you sure?' }, class: 'card-link text-muted' do %>
+            <i class="material-icons">delete</i>
+          <% end %>
+        </div>
+      </h5>
+      <h6 class="card-subtitle mb-2 text-muted"><%= local_time_ago note.created_at %></h6>
+      <p class="card-text text-truncate"><%= note.body.truncate(300) %></p>
+    </div>
+  </div>
+<% end %>
+
+<%= paginate @notes, window: 0 %>

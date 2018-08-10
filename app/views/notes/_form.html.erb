@@ -1,0 +1,15 @@
+<%= form_with(model: note, local: true, class: 'my-3') do |form| %>
+  <div class="form-group">
+    <%= form.text_field :title, placeholder: 'Untitled', class: 'no-border p-0 form-control font-weight-bold' %>
+  </div>
+
+  <div class="form-group text-area pb-5">
+    <%= form.text_area :body, placeholder: 'Write something here...', class: 'no-border p-0 form-control w-100 h-100' %>
+  </div>
+  
+  <nav class="navbar fixed-bottom navbar-light bg-light">
+    <div class="actions ml-auto">
+      <%= form.submit class: 'btn btn-primary' %>
+    </div>
+  </nav>
+<% end %>
